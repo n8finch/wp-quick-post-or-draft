@@ -1,0 +1,57 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background-color: #000;
+    opacity: .5;
+}
+
+.ui-dialog {
+    background: white;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+button.ui-corner-all{
+    position: absolute;
+    right: 0;
+}
+
+div.ui-dialog-titlebar {
+    text-align: center;
+}
+
+#wp-quick-post-draft-form {
+    padding: 10px;
+}
+
+#wp-quick-post-draft-form fieldset {
+    padding: none;
+    border: none;
+}
+
+#wp-quick-post-draft-button {
+    background-color: rgb(0, 115, 183);
+    border-radius: 0px 3px 3px 0px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px;
+    position: fixed;
+    z-index: 2147483647;
+    padding: 0px;
+    width: 44px;
+    height: 40px;
+    text-indent: -10000px;
+    opacity: 1;
+    display: block !important;
+    top: 40px;
+    left: -40px;
+    transition: left 1s ease;
+}
+
+#wp-quick-post-draft-button:hover {
+    left: 0;
+}
+
+
