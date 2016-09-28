@@ -11,7 +11,7 @@
 namespace WPQuickPostDraft\Main;
 
 
-add_action('wp_footer', __NAMESPACE__ . '\quickcheck');
+add_action( 'wp_footer', __NAMESPACE__ . '\quickcheck' );
 
 function quickcheck() {
 	echo '<div id="wp-quick-post-draft-form">
@@ -25,13 +25,15 @@ function quickcheck() {
       
       <label for="fep-category">Choose a Category</label>';
 
-      wp_dropdown_categories( array( 'id'               => 'wpqpd-post-category',
-	                               'hide_empty'       => 0,
-	                               'name'             => 'post_category',
-	                               'orderby'          => 'name',
-	                               'selected'         => $post['category'],
-	                               'hierarchical'     => true,
-	                               'show_option_none' => __( 'None', 'frontend-publishing' )
+	wp_dropdown_categories( array(
+		'id'               => 'wpqpd-post-category',
+		'hide_empty'       => 0,
+		'name'             => 'post_category',
+		'orderby'          => 'name',
+		'selected'         => $post['category'],
+		'hierarchical'     => true,
+		'value_field'      => 'slug',
+		'show_option_none' => __( 'None', 'frontend-publishing' )
 	) );
 
 	echo '

@@ -100,7 +100,7 @@ function add_these_plugin_styles_and_scripts() {
 	), false, false );
 
 	//use local data for actually posting to the admin
-	wp_localize_script( 'wpqpd-submitter', 'POST_SUBMITTER', array(
+	wp_localize_script( 'included-js', 'wpqpd_submit_info', array(
 			'root' => esc_url_raw( rest_url() ),
 			'nonce' => wp_create_nonce( 'wp_rest' ),
 			'success' => __( 'Thanks for your submission!', 'your-text-domain' ),
