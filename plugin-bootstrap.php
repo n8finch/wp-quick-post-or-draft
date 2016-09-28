@@ -92,11 +92,22 @@ function init_autoloader() {
  * @return void
  */
 function add_these_plugin_styles_and_scripts() {
+	//enqueue main styles and scripts
 	wp_enqueue_style( 'included-styles', WPQPD_URL . 'css/included_styles.css' );
 	wp_enqueue_script( 'included-js', WPQPD_URL . 'js/included_js.js', array(
 		'jquery',
 		'jquery-ui-dialog'
 	), false, false );
+
+	//use local data for actually posting to the admin
+	wp_localize_script( 'wpqpd-submitter', 'POST_SUBMITTER', array(
+			'root' => esc_url_raw( rest_url() ),
+			'nonce' => wp_create_nonce( 'wp_rest' ),
+			'success' => __( 'Thanks for your submission!', 'your-text-domain' ),
+			'failure' => __( 'Your submission could not be processed.', 'your-text-domain' ),
+			'current_user_id' => get_current_user_id()
+		)
+	);
 }
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\add_these_plugin_styles_and_scripts' );
@@ -116,7 +127,7 @@ function launch() {
 add_action('init', __NAMESPACE__ . '\init_plugin_files', 999);
 
 function init_plugin_files() {
-	if ( current_user_can('administrator') ) {
+	if ( is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
 		init_constants();
 		init_hooks();
 		launch();
