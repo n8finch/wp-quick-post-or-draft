@@ -64,12 +64,13 @@
 
     };
 
-    $('.ajax-loader').hide();
+    ajaxLoader.hide();
 
     $("#wp-quick-post-draft-button-draft").button().on("click", function (event) {
       event.preventDefault();
       $('.ajax-loader').show();
       getPostInfo('draft');
+      console.log(objectToPost);
       ajaxWPRESTAPI(new_wpqpd_submit_info, objectToPost);
     });
 
@@ -77,6 +78,7 @@
       event.preventDefault();
       $('.ajax-loader').show();
       getPostInfo('publish');
+      console.log(objectToPost);
       ajaxWPRESTAPI(new_wpqpd_submit_info, objectToPost);
     });
 

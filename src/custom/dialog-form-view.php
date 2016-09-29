@@ -23,10 +23,16 @@ function quickcheck() {
     <fieldset>
       <label for="title">Title</label>
       <input type="text" name="title" id="wpqpd-post-title" placeholder="Post Title" class="text ui-widget-content ui-corner-all">
-      <label for="wpqpd-post-content">Content</label>
-      <textarea name="wpqpd-post-content" id="wpqpd-post-content" rows="8" class="text ui-widget-content ui-corner-all" placeholder="Post Content"></textarea>
+      <label for="wpqpd-post-content">Content</label>';
+//      <textarea name="wpqpd-post-content" id="wpqpd-post-content" rows="8" class="text ui-widget-content ui-corner-all" placeholder="Post Content"></textarea>
+
+	wp_editor( '', 'wpqpd-post-content', $settings = array(
+		'textarea_name' => 'wpqpd_post_content',
+		'textarea_rows' => 8,
+		'media_buttons' => false
+	) );
       
-      <label for="fep-category">Choose a Category</label>';
+    echo '<label for="fep-category">Choose a Category</label>';
 
 	wp_dropdown_categories( array(
 		'id'               => 'wpqpd-post-category',
@@ -38,12 +44,7 @@ function quickcheck() {
 		'show_option_none' => __( 'None', 'frontend-publishing' )
 	) );
 
-	echo '
-
-
-      
-
-	  <button id="wp-quick-post-draft-button-draft">Save Draft</button> <button id="wp-quick-post-draft-button-post">Post Now</button> <div class="ajax-loader"><img src="' . WPQPD_URL . 'css/spinner.svg" width="32" height="32" /></div>     
+	echo '<button id="wp-quick-post-draft-button-draft">Save Draft</button> <button id="wp-quick-post-draft-button-post">Post Now</button> <div class="ajax-loader"><img src="' . WPQPD_URL . 'css/spinner.svg" width="32" height="32" /></div>     
       
      </fieldset>
   </form>

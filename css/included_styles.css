@@ -51,7 +51,7 @@ div.ui-dialog-titlebar {
     display: block !important;
     top: 40px;
     left: -40px;
-    transition: left 0.5s linear;
+    transition: left 0.1s linear;
 }
 
 #wp-quick-post-draft-button:hover {
