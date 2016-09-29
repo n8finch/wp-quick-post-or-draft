@@ -13,6 +13,9 @@ namespace WPQuickPostDraft\Main;
 
 add_action( 'wp_footer', __NAMESPACE__ . '\quickcheck' );
 
+//ddd(WPQPD_URL.'css/spinner.svg');
+
+
 function quickcheck() {
 	echo '<div id="wp-quick-post-draft-form">
  	<h2>New Post</h2>
@@ -32,7 +35,6 @@ function quickcheck() {
 		'orderby'          => 'name',
 		'selected'         => $post['category'],
 		'hierarchical'     => true,
-		'value_field'      => 'slug',
 		'show_option_none' => __( 'None', 'frontend-publishing' )
 	) );
 
@@ -41,12 +43,12 @@ function quickcheck() {
 
       
 
-	  <button id="wp-quick-post-draft-button-draft">Save Draft</button> <button id="wp-quick-post-draft-button-post">Post Now</button>      
+	  <button id="wp-quick-post-draft-button-draft">Save Draft</button> <button id="wp-quick-post-draft-button-post">Post Now</button> <div class="ajax-loader"><img src="' . WPQPD_URL . 'css/spinner.svg" width="32" height="32" /></div>     
       
      </fieldset>
   </form>
 </div>
  
 
-<button id="wp-quick-post-draft-button">New Post</button>';
+<button id="wp-quick-post-draft-button"> <span class="dashicons dashicons-welcome-write-blog"></span> </button>';
 }

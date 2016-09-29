@@ -3,11 +3,12 @@
 
   $(function () {
 
-    var dialog, form, wpqpd_submit_info, objectToPost, ajaxWPRESTAPI, new_wpqpd_submit_info;
+    var dialog, form, wpqpd_submit_info, objectToPost, ajaxWPRESTAPI, new_wpqpd_submit_info, ajaxLoader;
 
     new_wpqpd_submit_info = $(window.wpqpd_submit_info);
     new_wpqpd_submit_info = (new_wpqpd_submit_info["0"]);
 
+    ajaxLoader = $('.ajax-loader');
 
     ajaxWPRESTAPI = function (wpqpd_submit_info, objectToPost) {
       $.ajax({
@@ -18,11 +19,15 @@
           xhr.setRequestHeader('X-WP-Nonce', wpqpd_submit_info.nonce);
         },
         success: function (response) {
-          console.log(response);
-          alert(wpqpd_submit_info.success);
+
+          ajaxLoader.children().hide();
+          ajaxLoader.append('<div class="wpqpd-success"><small><b>Success!</b> You can close this window, or it will close in 5 seconds.</small></div>');
+          setTimeout(function() {
+            dialog.dialog("close");
+          }, 5000);
+
         },
         fail: function (response) {
-          console.log(response);
           alert(wpqpd_submit_info.failure);
         }
 
@@ -51,7 +56,7 @@
       objectToPost = {
         title: postTitle,
         content: postContent,
-        category: postCategory,
+        categories: [postCategory],
         status: status
       };
 
@@ -59,27 +64,23 @@
 
     };
 
+    $('.ajax-loader').hide();
+
     $("#wp-quick-post-draft-button-draft").button().on("click", function (event) {
       event.preventDefault();
+      $('.ajax-loader').show();
       getPostInfo('draft');
-      console.log('Object to Post: ', objectToPost);
-
       ajaxWPRESTAPI(new_wpqpd_submit_info, objectToPost);
-
-
-
-
     });
 
     $("#wp-quick-post-draft-button-post").button().on("click", function (event) {
       event.preventDefault();
+      $('.ajax-loader').show();
       getPostInfo('publish');
-      console.log('Object to Post: ', objectToPost);
-
       ajaxWPRESTAPI(new_wpqpd_submit_info, objectToPost);
     });
 
-    $("#wp-quick-post-draft-button").button().on("click", function () {
+    $("#wp-quick-post-draft-button").on("click", function () {
       $('body').append('<div class="modal-backdrop fade in"></div>');
       dialog.dialog("open");
     });
