@@ -108,6 +108,8 @@ function add_these_plugin_styles_and_scripts() {
 			'current_user_id' => get_current_user_id()
 		)
 	);
+
+	wp_enqueue_media();
 }
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\add_these_plugin_styles_and_scripts' );

@@ -68,17 +68,23 @@
 
     $("#wp-quick-post-draft-button-draft").button().on("click", function (event) {
       event.preventDefault();
+      $('#wpqpd-post-content-html').click();
+      $('#wpqpd-post-content-tmce').click();
       $('.ajax-loader').show();
       getPostInfo('draft');
       console.log(objectToPost);
+
       ajaxWPRESTAPI(new_wpqpd_submit_info, objectToPost);
     });
 
     $("#wp-quick-post-draft-button-post").button().on("click", function (event) {
       event.preventDefault();
+      $('#wpqpd-post-content-html').click();
+      $('#wpqpd-post-content-tmce').click();
       $('.ajax-loader').show();
       getPostInfo('publish');
       console.log(objectToPost);
+
       ajaxWPRESTAPI(new_wpqpd_submit_info, objectToPost);
     });
 

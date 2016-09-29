@@ -29,7 +29,7 @@ function quickcheck() {
 	wp_editor( '', 'wpqpd-post-content', $settings = array(
 		'textarea_name' => 'wpqpd_post_content',
 		'textarea_rows' => 8,
-		'media_buttons' => false
+		'media_buttons' => true
 	) );
       
     echo '<label for="fep-category">Choose a Category</label>';
