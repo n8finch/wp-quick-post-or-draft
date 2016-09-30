@@ -32,7 +32,7 @@ function quickcheck() {
 		'media_buttons' => true
 	) );
       
-    echo '<label for="fep-category">Choose a Category</label>';
+    echo '<label for="fep-category">Choose a Category: </label>';
 
 	wp_dropdown_categories( array(
 		'id'               => 'wpqpd-post-category',
@@ -44,7 +44,7 @@ function quickcheck() {
 		'show_option_none' => __( 'None', 'frontend-publishing' )
 	) );
 
-	echo '<button id="wp-quick-post-draft-button-draft">Save Draft</button> <button id="wp-quick-post-draft-button-post">Post Now</button> <div class="ajax-loader"><img src="' . WPQPD_URL . 'css/spinner.svg" width="32" height="32" /></div>     
+	echo '<div class="wp-quick-post-draft-button-group"><button id="wp-quick-post-draft-button-draft">Save Draft</button> <button id="wp-quick-post-draft-button-post">Post Now</button> <div class="ajax-loader"><img src="' . WPQPD_URL . 'css/spinner.svg" width="32" height="32" /></div></div>     
       
      </fieldset>
   </form>

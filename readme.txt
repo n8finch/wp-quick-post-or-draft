@@ -1,8 +1,16 @@
-# WP Quick Post or Draft Plugin
+=== WP Quick Post or Draft Plugin ===
+Contributors: finchps
+Tags: post, post, draft, wp rest api, blog, popup
+Donate link: https://n8finch.com/donate
+Requires at least: 4.4
+Tested up to: 4.6.1
+Stable tag: trunk
+License: GPL2.0+
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Intro: Write a quick draft or post from a pop up editor on the front end of your website.
+Write a quick draft or post from a pop up editor on the front end of your website.
 
-## == Description ==
+== Description ==
 Have you ever wanted to stay on the front end of your website and write a quick post or draft from there? This plugin will allow you to do just that!
 
 Please note: this plugin currently requires the WordPress REST API (Version 2) plugin (which you can download here: https://wordpress.org/plugins/rest-api/).
@@ -25,28 +33,23 @@ If you have any questions, suggestions or would like to report a bug, you can do
 
 
 
-## == Installation ==
+== Installation ==
 1. Either search for the plugin in your WordPress site admin, or download zip file, unzip it, and then upload it to your WordPress site in the \'/wp-content/plugins/\' directory.
 
 2. Activate the plugin through the \'Plugins\' menu in WordPress.
 
-3. 
+3.
 
-## == Frequently Asked Questions ==
+== Frequently Asked Questions ==
 None so far! Ask questions here or at the GitHub link in the description.
 
-
-## == Contributions
-
-All feedback, bug reports, and pull requests are welcome.
-
-## == Screenshots ==
+== Screenshots ==
 1. Click on the blue slide out button to pull up the popup.
-2. Fill out the Title, Content, and Category (thought you don't need a category filled out).
+2. Fill out the Title, Content, and Category (thought you don't need a category filled out if you don't want to:-) ).
 3. Click on the button to save as a draft or immediately post.
 
-## == Changelog ==
+== Changelog ==
 1.0.0 Initial version
 
-## == Upgrade Notice ==
+== Upgrade Notice ==
 None to date.

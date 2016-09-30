@@ -24,7 +24,7 @@
           ajaxLoader.append('<div class="wpqpd-success"><small><b>Success!</b> You can close this window, or it will close in 5 seconds.</small></div>');
           setTimeout(function() {
             dialog.dialog("close");
-          }, 5000);
+          }, 50000);
 
         },
         fail: function (response) {
