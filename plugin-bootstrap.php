@@ -44,9 +44,9 @@ function wpqpd_register_required_plugins() {
 
 		//Call the WP REST API Plugin
 		array(
-			'name'      => 'WordPress REST API (Version 2)',
-			'slug'      => 'rest-api',
-			'required'  => true,
+			'name'     => 'WordPress REST API (Version 2)',
+			'slug'     => 'rest-api',
+			'required' => true,
 		),
 
 	);
@@ -55,17 +55,39 @@ function wpqpd_register_required_plugins() {
 	 * Array of configuration settings. Amend each line as needed.
 	 */
 	$config = array(
-		'id'           => 'wp-quick-post-draft',                 // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path' => '',                      // Default absolute path to bundled plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'parent_slug'  => 'plugins.php',            // Parent menu slug.
-		'capability'   => 'manage_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-		'has_notices'  => true,                    // Show admin notices or not.
-		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
+		'id'           => 'wp-quick-post-draft',
+		// Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',
+		// Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins',
+		// Menu slug.
+		'parent_slug'  => 'plugins.php',
+		// Parent menu slug.
+		'capability'   => 'manage_options',
+		// Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,
+		// Show admin notices or not.
+		'dismissable'  => true,
+		// If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',
+		// If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false,
+		// Automatically activate plugins after installation or not.
+		'message'      => '',
+		// Message to output right before the plugins table.
+		'strings'      => array(
+			'notice_can_install_required'     => _n_noop(
 
+				'In order to use the WP Quick Post or Draft Plugin, you will need to have the following plugin installed and activated: %1$s.',
+				'In order to use the WP Quick Post or Draft Plugin, you will need to have the following plugin installed and activated: %1$s.',
+				'wp-quick-post-draft'
+			),
+			'notice_can_activate_required'    => _n_noop(
+				'In order to use the WP Quick Post or Draft Plugin, you will need to have the following plugin installed and activated: %1$s.',
+				'In order to use the WP Quick Post or Draft Plugin, you will need to have the following plugin installed and activated: %1$s.',
+				'wp-quick-post-draft'
+			),
+		)
 	);
 
 	tgmpa( $plugins, $config );
@@ -147,10 +169,10 @@ function add_these_plugin_styles_and_scripts() {
 
 	//use local data for actually posting to the admin
 	wp_localize_script( 'included-js', 'wpqpd_submit_info', array(
-			'root' => esc_url_raw( rest_url() ),
-			'nonce' => wp_create_nonce( 'wp_rest' ),
-			'success' => __( 'Thanks for your submission!', 'your-text-domain' ),
-			'failure' => __( 'Your submission could not be processed.', 'your-text-domain' ),
+			'root'            => esc_url_raw( rest_url() ),
+			'nonce'           => wp_create_nonce( 'wp_rest' ),
+			'success'         => __( 'Thanks for your submission!', 'your-text-domain' ),
+			'failure'         => __( 'Your submission could not be processed.', 'your-text-domain' ),
 			'current_user_id' => get_current_user_id()
 		)
 	);
@@ -172,7 +194,7 @@ function launch() {
 }
 
 
-add_action('init', __NAMESPACE__ . '\init_plugin_files', 999);
+add_action( 'init', __NAMESPACE__ . '\init_plugin_files', 999 );
 
 function init_plugin_files() {
 	if ( is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
