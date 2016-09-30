@@ -42,6 +42,10 @@ div.ui-dialog-titlebar {
     margin-top: 10px;
 }
 
+.wp-quick-post-draft-button-group > * {
+    display: inline-block;
+}
+
 #wp-quick-post-draft-button {
     background-color: rgb(0, 115, 183);
     border-radius: 0px 3px 3px 0px;
@@ -56,6 +60,7 @@ div.ui-dialog-titlebar {
     top: 40px;
     left: -40px;
     transition: left 0.1s linear;
+    color: white;
 }
 
 #wp-quick-post-draft-button:hover {
@@ -83,5 +88,5 @@ div.ui-dialog-titlebar {
     border-left: 5px solid #5CB85C;
     padding: 5px;
     height: auto;
-    max-width: 265px;
+    max-width: 260px;
 }
