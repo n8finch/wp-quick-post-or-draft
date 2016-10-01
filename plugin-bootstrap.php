@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Quick Post or Draft Plugin
+ * WP Quick Post or Draft
  *
  * @package     WPQuickPostDraft
  * @author      n8finch

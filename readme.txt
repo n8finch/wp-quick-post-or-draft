@@ -1,4 +1,4 @@
-=== WP Quick Post or Draft Plugin ===
+=== WP Quick Post or Draft ===
 Contributors: finchps
 Tags: post, post, draft, wp rest api, blog, popup
 Donate link: https://n8finch.com/donate

@@ -1,4 +1,4 @@
-# WP Quick Post or Draft Plugin
+# WP Quick Post or Draft
 
 Intro: Write a quick draft or post from a pop up editor on the front end of your website.
 
