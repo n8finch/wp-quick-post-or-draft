@@ -11,12 +11,10 @@
 namespace WPQuickPostDraft\Main;
 
 
-add_action( 'wp_footer', __NAMESPACE__ . '\quickcheck' );
-
-//ddd(WPQPD_URL.'css/spinner.svg');
+add_action( 'wp_footer', __NAMESPACE__ . '\wpqpd_do_form' );
 
 
-function quickcheck() {
+function wpqpd_do_form() {
 	echo '<div id="wp-quick-post-draft-form">
  	<h2>New Post</h2>
   <form>

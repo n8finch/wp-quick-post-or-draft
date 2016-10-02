@@ -19,7 +19,7 @@ namespace WPQuickPostDraft\Support;
  *
  * @return void
  */
-function autoload_files( $src_root_dir ) {
+function wpqpd_autoload_files( $src_root_dir ) {
 
 	$filenames = array(
 		 'custom/dialog-form-view',
